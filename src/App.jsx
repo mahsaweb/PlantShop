@@ -15,5 +15,5 @@ function App() {
       <SwiperSlide>محصول ۲</SwiperSlide>
     </Swiper>
   );
-}ذئدال
+}
 export default App;
