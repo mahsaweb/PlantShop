@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// فعلاً از تگ a استفاده می‌کنیم، بعداً که React Router نصب کردی به Link تغییرش می‌دیم
 const Header = () => {
   const menuItems = ['home', 'blog', 'contact us', 'shop'];
 
@@ -16,7 +15,9 @@ const Header = () => {
           <ul className="flex gap-x-8 justify-center items-center text-white font-medium">
             {menuItems.map((item) => (
               <li key={item} className="group py-4 relative">
-                <Link className="tracking-widest uppercase " to={`/${item === 'home' ? '' : item}`}>
+                <Link
+                  className="tracking-widest uppercase"
+                  to={`/${item === 'home' ? '' : item.replace(/\s+/g, '-')}`}>
                   {item}
                 </Link>
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span>
