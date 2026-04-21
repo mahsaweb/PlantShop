@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Blog from './pages/Blog';
 import Shop from './pages/Shop';
 import ContactUs from './pages/ContactUs';
+import BlogDetails from './pages/BlogDetails';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/blog/:id" element={<BlogDetails />} />
         </Routes>
         <footer className="w-full bg-emerald-950 py-10 text-center text-white">
           <p>© 2026 PlantShop - All rights reserved</p>
