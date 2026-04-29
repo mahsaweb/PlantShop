@@ -2,10 +2,10 @@ import Hero from '../components/Hero';
 import ProductSlider from '../components/ProductSlider';
 import Features from '../components/Features';
 
-const Home = () => (
+const Home = ({ addToCart }) => (
   <>
     <Hero />
-    <ProductSlider />
+    <ProductSlider addToCart={addToCart}/>
     <Features />
   </>
 );

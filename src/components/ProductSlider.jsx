@@ -3,20 +3,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { plants } from "../data/plants"; // ایمپورت دیتای مشترک
 
-const ProductSlider = () => {
-  const products = [
-    { id: 1, img: '7.jpg', name: 'Snake Plant', price: '15$', tag: 'Indoor/Low Light' },
-    { id: 2, img: '3.png', name: 'Aloe Vera', price: '12$', tag: 'Outdoor/Sunny' },
-    { id: 3, img: '6.jpg', name: 'Monstera', price: '25$', tag: 'Indoor/Humid' },
-    { id: 4, img: '5.png', name: 'Peace Lily', price: '18$', tag: 'Indoor/Low Light' },
-    { id: 5, img: 'product6.webp', name: 'Cactus Mix', price: '10$', tag: 'Outdoor/Desert' },
-    { id: 6, img: '2.png', name: 'Fiddle Leaf', price: '30$', tag: 'Indoor/Bright' },
-    { id: 7, img: 'product12.webp', name: 'Spider Plant', price: '14$', tag: 'Indoor/Easy Care' },
-    { id: 8, img: '1.png', name: 'Golden Pothos', price: '11$', tag: 'Indoor/Vining' },
-    { id: 9, img: 'product7.webp', name: 'Rubber Plant', price: '22$', tag: 'Indoor/Bold' },
-    { id: 10, img: 'product3.webp', name: 'Jade Plant', price: '16$', tag: 'Indoor/Succulent' },
-  ];
+const ProductSlider = ({ addToCart }) => {
+  
 
   return (
     <section className="w-full bg-gray-50">
@@ -33,7 +23,7 @@ const ProductSlider = () => {
           }}
           className="mySwiper !pb-12"
         >
-          {products.map((product) => (
+          {plants.map((product) => (
             <SwiperSlide key={product.id} className="p-4">
               <figure className="group bg-white relative rounded-[2.5rem] p-5 hover:shadow-2xl transition-all duration-500 overflow-hidden">
                 <img 
@@ -46,7 +36,7 @@ const ProductSlider = () => {
                   <p className="text-slate-500 text-sm italic">{product.tag}</p>
                   <div className="flex justify-between items-center mt-4 px-2">
                     <span className="text-xl font-bold text-emerald-700">{product.price}</span>
-                    <button className="bg-red-600 text-white p-3 rounded-xl opacity-0 translate-y-10 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700 active:scale-90">
+                    <button onClick={addToCart} className="bg-red-600 text-white p-3 rounded-xl opacity-0 translate-y-10 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700 active:scale-90" >
                       <svg width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
                         <path d="M239.82,90.27l-21.22,74.29A24,24,0,0,1,195.39,182H80.61a24,24,0,0,1-23.21-17.44L33.19,78.29,25.49,42.27A8,8,0,0,0,17.72,36H8a8,8,0,0,1,0-16h9.72a24,24,0,0,1-23.3,18.73L48.81,76h176a8,8,0,0,1,7.82,9.73ZM104,212a12,12,0,1,0-12,12A12,12,0,0,0,104,212Zm104,0a12,12,0,1,0-12,12A12,12,0,0,0,208,212Z"></path>
                       </svg>

@@ -5,17 +5,22 @@ import Blog from './pages/Blog';
 import Shop from './pages/Shop';
 import ContactUs from './pages/ContactUs';
 import BlogDetails from './pages/BlogDetails';
+import { useState } from 'react';
 
 function App() {
+  const [cartCount, setCartCount]=useState(0);
+  const addToCart=()=>{
+    setCartCount(cartCount + 1)
+  }
   return (
     <Router>
       <main className="w-full min-h-screen">
-        {/* هدر بیرون از Routes قرار می‌گیرد چون می‌خواهیم در تمام صفحات ثابت باشد */}
-        <Header />
+        
+        <Header cartCount={cartCount}/>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home addToCart={addToCart}/>} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/shop" element={<Shop />} />
+          <Route path="/shop" element={<Shop addToCart={addToCart}/>} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/blog/:id" element={<BlogDetails />} />
         </Routes>
@@ -26,5 +31,6 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;
