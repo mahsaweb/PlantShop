@@ -10,7 +10,7 @@ const ProductSlider = ({ addToCart }) => {
 
   return (
     <section className="w-full bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 py-20">
+       <div className="max-w-7xl mx-auto px-6 py-20">
         <Swiper
           modules={[Pagination]}
           spaceBetween={20}
