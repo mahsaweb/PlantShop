@@ -34,24 +34,27 @@ const ContactUs = () => {
           >
             <form className="space-y-5">
               <div>
-                <label className="text-emerald-100 text-sm mb-2 block font-semibold">Full Name</label>
+                <label htmlFor="contact-name" className="text-emerald-100 text-sm mb-2 block font-semibold">Full Name</label>
                 <input
+                  id="contact-name"
                   type="text"
                   className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white focus:ring-2 focus:ring-emerald-500 outline-none transition-all placeholder:text-white/20"
                   placeholder="Enter your name"
                 />
               </div>
               <div>
-                <label className="text-emerald-100 text-sm mb-2 block font-semibold">Email Address</label>
+                <label htmlFor="contact-email" className="text-emerald-100 text-sm mb-2 block font-semibold">Email Address</label>
                 <input
+                  id="contact-email"
                   type="email"
                   className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white focus:ring-2 focus:ring-emerald-500 outline-none transition-all placeholder:text-white/20"
                   placeholder="hello@example.com"
                 />
               </div>
               <div>
-                <label className="text-emerald-100 text-sm mb-2 block font-semibold">Message</label>
+                <label htmlFor="contact-message" className="text-emerald-100 text-sm mb-2 block font-semibold">Message</label>
                 <textarea
+                  id="contact-message"
                   rows="4"
                   className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white focus:ring-2 focus:ring-emerald-500 outline-none transition-all placeholder:text-white/20"
                   placeholder="How can we help you?"
@@ -60,6 +63,7 @@ const ContactUs = () => {
 
               {/* دکمه ارسال با افکت کلیک و هوور */}
               <motion.button
+                type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="w-full bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-bold py-4 rounded-2xl shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all uppercase tracking-wider"

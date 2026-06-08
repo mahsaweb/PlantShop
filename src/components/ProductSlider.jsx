@@ -35,8 +35,8 @@ const ProductSlider = ({ addToCart }) => {
                   <h3 className="font-bold text-slate-800 text-lg">{product.name}</h3>
                   <p className="text-slate-500 text-sm italic">{product.tag}</p>
                   <div className="flex justify-between items-center mt-4 px-2">
-                    <span className="text-xl font-bold text-emerald-700">{product.price}</span>
-                    <button onClick={addToCart} className="bg-red-600 text-white p-3 rounded-xl opacity-0 translate-y-10 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700 active:scale-90" >
+                    <span className="text-xl font-bold text-emerald-700">${product.price}</span>
+                    <button aria-label={`Add ${product.name} to cart`} onClick={() => addToCart(product)} className="bg-red-600 text-white p-3 rounded-xl opacity-0 translate-y-10 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700 active:scale-90" >
                       <svg width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
                         <path d="M239.82,90.27l-21.22,74.29A24,24,0,0,1,195.39,182H80.61a24,24,0,0,1-23.21-17.44L33.19,78.29,25.49,42.27A8,8,0,0,0,17.72,36H8a8,8,0,0,1,0-16h9.72a24,24,0,0,1-23.3,18.73L48.81,76h176a8,8,0,0,1,7.82,9.73ZM104,212a12,12,0,1,0-12,12A12,12,0,0,0,104,212Zm104,0a12,12,0,1,0-12,12A12,12,0,0,0,208,212Z"></path>
                       </svg>
