@@ -1,11 +1,30 @@
 import React from 'react';
-import { motion } from 'framer-motion'; //  کتابخانه انیمیشن
+import { motion } from 'framer-motion';
 
 const ContactUs = () => {
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 }
   };
+
+  const contactData = [
+    {
+      id: 1,
+      title: "Email Us",
+      des: "support@plantshop.com",
+    },
+    {
+      id: 2,
+      title: "Call Us",
+      des: "+98 (21) 12345678",
+    },
+    {
+      id: 3,
+      title: "Visit Our Studio",
+      des: "Iran-Tehran",
+    },
+  ]
+
 
   return (
     <div className="pt-32 pb-20 min-h-screen bg-emerald-950 relative overflow-hidden font-sans">
@@ -61,7 +80,7 @@ const ContactUs = () => {
                 ></textarea>
               </div>
 
-              {/* دکمه ارسال با افکت کلیک و هوور */}
+
               <motion.button
                 type="submit"
                 whileHover={{ scale: 1.02 }}
@@ -80,25 +99,15 @@ const ContactUs = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col justify-center space-y-8"
           >
-            {/* کارت ایمیل */}
-            <div className="bg-white/5 p-6 rounded-3xl border border-white/5 hover:bg-white/10 transition-all group">
-              <h3 className="text-emerald-400 font-bold text-xl mb-1">Email Us</h3>
-              <p className="text-emerald-100/70 group-hover:text-white transition-colors">support@plantshop.com</p>
-            </div>
 
-            {/* کارت تلفن */}
-            <div className="bg-white/5 p-6 rounded-3xl border border-white/5 hover:bg-white/10 transition-all group">
-              <h3 className="text-emerald-400 font-bold text-xl mb-1">Call Us</h3>
-              <p className="text-emerald-100/70 group-hover:text-white transition-colors">+98 (21) 12345678</p>
+            
+            {contactData.map((val)=>(
+             <div key={val.id} className="bg-white/5 p-6 rounded-3xl border border-white/5 hover:bg-white/10 transition-all group">
+              <h3 className="text-emerald-400 font-bold text-xl mb-1">{val.title}</h3>
+              <p className="text-emerald-100/70 group-hover:text-white transition-colors whitespace-pre-line">{val.des}</p>
             </div>
-
-            {/* کارت آدرس */}
-            <div className="bg-white/5 p-6 rounded-3xl border border-white/5 hover:bg-white/10 transition-all group">
-              <h3 className="text-emerald-400 font-bold text-xl mb-1">Visit Our Studio</h3>
-              <p className="text-emerald-100/70 group-hover:text-white transition-colors">
-                123 Green Avenue, Garden District<br />New York, NY 10001
-              </p>
-            </div>
+            ))}
+          
           </motion.div>
 
         </div>

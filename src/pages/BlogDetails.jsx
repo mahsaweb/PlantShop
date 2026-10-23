@@ -29,7 +29,7 @@ const BlogDetails = () => {
         <div className="relative h-40 md:h-52 bg-emerald-50 rounded-3xl mb-8 overflow-hidden flex items-center justify-center border-2 border-emerald-100/50 shadow-inner group">
 
           {/* یک لایه تزیینی است که حس شیشه‌ای به تصویر می‌دهد */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-emerald-950/20 backdrop-blur-[1px] group-hover:backdrop-blur-none transition-all duration-500"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-white/20 to-emerald-950/20 backdrop-blur-[1px] group-hover:backdrop-blur-none transition-all duration-500"></div>
 
           <span className="relative z-10 text-emerald-300 font-black text-xl md:text-2xl uppercase tracking-tighter opacity-70">
             Plant Journal Vol. {id}
