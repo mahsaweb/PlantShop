@@ -21,7 +21,7 @@ const ProductSlider = ({ addToCart }) => {
             768: { slidesPerView: 3 },
             1024: { slidesPerView: 5 },
           }}
-          className="mySwiper !pb-12"
+          className="mySwiper pb-12!"
         >
           {plants.map((product) => (
             <SwiperSlide key={product.id} className="p-4">

@@ -7,6 +7,7 @@ import ContactUs from './pages/ContactUs';
 import BlogDetails from './pages/BlogDetails';
 import CartDrawer from './components/CartDrawer'; //   منوی کشویی سبد خرید
 import { useState } from 'react';
+import PlantFinder from './components/PlantFinder';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -61,6 +62,7 @@ function App() {
           <Route path="/shop" element={<Shop addToCart={addToCart}/>} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/blog/:id" element={<BlogDetails />} />
+          <Route path="/finder" element={<PlantFinder addToCart={addToCart} />} />
         </Routes>
         
         <footer className="w-full bg-emerald-950 py-10 text-center text-white">

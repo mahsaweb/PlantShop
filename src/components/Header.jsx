@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // 🛠️ تغییر اول: اضافه کردن onCartClick به ورودی‌های کامپوننت
 const Header = ({ cartCount, onCartClick }) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const menuItems = ['home', 'blog', 'contact us', 'shop'];
+  const menuItems = ['home', 'shop', 'finder', 'blog', 'contact us'];
 
   return (
     <header className="fixed top-0 left-0 w-full h-20 backdrop-blur-md bg-emerald-950/40 border-b border-white/10 z-[999]">
@@ -39,7 +39,7 @@ const Header = ({ cartCount, onCartClick }) => {
             ))}
           </ul>
         </nav>
-
+        {/* منو در حالت موبایل */}
         <div className="md:hidden ml-auto">
           <button
             onClick={() => setMobileNavOpen((prev) => !prev)}

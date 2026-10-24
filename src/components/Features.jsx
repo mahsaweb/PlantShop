@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Features = () => {
-  // داده‌ها را در یک آرایه ساده تعریف می‌کنیم
+  
   const data = [
     {
       id: 1,

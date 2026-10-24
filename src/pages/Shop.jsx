@@ -1,5 +1,5 @@
 import React from 'react';
-import { plants } from '../data/plants'; // ایمپورت دیتای مشترک
+import { plants } from '../data/plants'; 
 
 const Shop = ({ addToCart }) => { // دریافت تابع از App.jsx
   return (
