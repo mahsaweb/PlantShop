@@ -11,28 +11,24 @@ const Shop = ({ addToCart }) => { // دریافت تابع از App.jsx
         {/* گرید محصولات */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {plants.map((plant) => (
-            <div key={plant.id} className="group bg-white rounded-[2rem] p-4 shadow-sm hover:shadow-xl transition-all duration-500">
-              <div className="relative overflow-hidden rounded-[1.5rem] aspect-square mb-4">
+            <div key={plant.id} className="group bg-white rounded-4xl p-4 shadow-sm hover:shadow-xl transition-all duration-500">
+              <div className="overflow-hidden rounded-3xl aspect-square mb-4">
                 <img 
                   src={`/assets/Images/${plant.img}`} 
                   alt={plant.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                
+                />  
+              </div>
+              <h3 className="text-lg font-bold text-gray-800 px-2">{plant.name}</h3>
+              <div className="relative flex justify-between items-center mt-2 px-2">
+                <span className="text-emerald-700 font-bold">${plant.price}</span>
                 <button 
                  onClick={() => addToCart(plant)}
                  aria-label={`Add ${plant.name} to cart`}
-                  className="absolute bottom-4 right-4 bg-emerald-600 text-white p-3 rounded-2xl opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg hover:bg-emerald-700"
+                  className="absolute text-sm font-bold bottom-2 right-4 bg-emerald-600 text-white p-3 rounded-2xl opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg hover:bg-emerald-700"
                 >
                   Add to Cart +
-                </button>
-              </div>
-              <h3 className="text-lg font-bold text-gray-800 px-2">{plant.name}</h3>
-              <div className="flex justify-between items-center mt-2 px-2">
-                <span className="text-emerald-700 font-bold">${plant.price}</span>
-                {/* <span className="text-xs bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full uppercase font-semibold">
-                  {plant.category}
-                </span> */}
+                </button>               
               </div>
             </div>
           ))}
