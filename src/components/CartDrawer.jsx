@@ -1,4 +1,4 @@
-// src/components/CartDrawer.jsx
+
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -10,24 +10,24 @@ const CartDrawer = ({ isOpen, onClose, items, onIncrease, onDecrease, removeFrom
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* لایه سیاه پس‌زمینه (Overlay) - بالای همه لایه‌ها */}
+          {/* لایه سیاه پس‌زمینه */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[999]"
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-999"
           />
 
-          {/* منوی اصلی کشویی - با z-index بالاتر از هدر سایت */}
+          {/* منوی اصلی کشویی  */}
           <motion.div 
             initial={{ x: '100%' }} 
             animate={{ x: 0 }}      
             exit={{ x: '100%' }}    
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed right-0 top-0 h-full w-full md:w-[400px] bg-white shadow-2xl z-[1000] flex flex-col"
+            className="fixed right-0 top-0 h-full w-full md:w-100 bg-white shadow-2xl z-1000 flex flex-col"
           >
-            {/* سربرگ سبد خرید و دکمه ضربدر (کاملاً مشخص و دور از هدر اصلی) */}
+            {/* سربرگ سبد خرید و دکمه ضربدر */}
             <div className="p-6 border-b flex justify-between items-center bg-emerald-50 shadow-sm">
               <h2 className="text-2xl font-bold text-emerald-900">Your Cart 🛒</h2>
               
@@ -40,7 +40,7 @@ const CartDrawer = ({ isOpen, onClose, items, onIncrease, onDecrease, removeFrom
               </button>
             </div>
 
-            {/* لیست محصولات - اسکرول‌خور */}
+            {/*لیست محصولات - بااسکرول  */}
             <div className="flex-1 overflow-y-auto p-6 space-y-4">
               {items.length === 0 ? (
                 <div className="text-center py-20 text-gray-400">Your cart is empty 🌿</div>
