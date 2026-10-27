@@ -46,7 +46,7 @@ const Features = () => {
   ];
 
   return (
-    <section className="w-full py-16 bg-teal-50 border-b border-gray-50">
+    <section className="w-full py-16 bg-teal-50 border-b border-gray-50 ">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 ">
         {data.map((item) => (
           <div key={item.id} className="group flex flex-col items-center text-center ">
@@ -56,7 +56,7 @@ const Features = () => {
             <h3 className="text-slate-800 font-bold uppercase tracking-widest text-sm">
               {item.title}
             </h3>
-            <p className="text-slate-500 mt-2 text-xs leading-relaxed max-w-[180px]">
+            <p className="text-slate-500 mt-2 text-xs leading-relaxed max-w-45">
               {item.desc}
             </p>
           </div>
