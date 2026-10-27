@@ -5,15 +5,25 @@ import Blog from './pages/Blog';
 import Shop from './pages/Shop';
 import ContactUs from './pages/ContactUs';
 import BlogDetails from './pages/BlogDetails';
-import CartDrawer from './components/CartDrawer'; //   منوی کشویی سبد خرید
-import { useState } from 'react';
+import CartDrawer from './components/CartDrawer'; 
+import { useState, useEffect } from 'react';
 import PlantFinder from './components/PlantFinder';
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
-  const [isCartOpen, setIsCartOpen] = useState(false); //  استیت برای باز یا بسته بودن منو
+  // ۱. خواندن سبد خرید از حافظه مرورگر موقع لود شدن
+  const [cartItems, setCartItems] = useState(() => {
+    const savedCart = localStorage.getItem('plantCart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
 
-  // تابع اضافه کردن به سبد خرید
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  // ۲. ذخیره خودکار در localStorage هر بار که سبد خرید تغییر می‌کند
+  useEffect(() => {
+    localStorage.setItem('plantCart', JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  // تابع اضافه کردن به سبد خرید (یا افزایش تعداد)
   const addToCart = (product) => {
     setCartItems((prevItems) => {
       const isExist = prevItems.find(item => item.id === product.id);
@@ -26,34 +36,45 @@ function App() {
       return [...prevItems, { ...product, quantity: 1 }];
     });
 
-    // ۳. وقتی کاربر دکمه خرید را زد، منو خودکار باز شود
     setIsCartOpen(true);
   };
 
-  // ۴. تابع حذف محصول از داخل منوی کشویی
+  // ۳. تعریف تابع کاهش تعداد (این همان تابعی بود که ارور می‌داد و کم بود!)
+  const decreaseQuantity = (id) => {
+    setCartItems((prevItems) => {
+      return prevItems.map(item => {
+        if (item.id === id) {
+          return { ...item, quantity: item.quantity - 1 };
+        }
+        return item;
+      }).filter(item => item.quantity > 0); // اگر تعداد صفر شد، حذفش کن
+    });
+  };
+
+  // ۴. تابع حذف کامل محصول
   const removeFromCart = (id) => {
     setCartItems(cartItems.filter((item) => item.id !== id));
   };
 
-  // محاسبه تعداد کل آیتم‌ها
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <Router>
-       <main aria-label="Main content" className="w-full min-h-screen relative"> {/* اضافه کردن relative برای پوزیشن منو */}
+      <main aria-label="Main content" className="w-full min-h-screen relative">
         
-        {/* ۵. به هدر می‌گوییم وقتی روی آیکون کلیک شد، منو را باز کند */}
         <Header 
           cartCount={totalItems} 
           onCartClick={() => setIsCartOpen(true)} 
         />
 
-        {/* ۶. قرار دادن کامپوننت سبد خرید کشویی در صفحه */}
+        {/* پاس دادن درست توابع به CartDrawer */}
         <CartDrawer 
           isOpen={isCartOpen} 
           onClose={() => setIsCartOpen(false)} 
           items={cartItems}
-          removeFromCart={removeFromCart}
+          onIncrease={addToCart}           
+          onDecrease={decreaseQuantity}    
+          removeFromCart={removeFromCart}  
         />
         
         <Routes>

@@ -46,10 +46,10 @@ const Features = () => {
   ];
 
   return (
-    <section className="w-full py-16 bg-white border-b border-gray-50">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <section className="w-full py-16 bg-teal-50 border-b border-gray-50">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 ">
         {data.map((item) => (
-          <div key={item.id} className="group flex flex-col items-center text-center">
+          <div key={item.id} className="group flex flex-col items-center text-center ">
             <div className="w-14 h-14 bg-emerald-50 text-emerald-500 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-500">
               {item.icon}
             </div>
