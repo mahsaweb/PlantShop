@@ -104,9 +104,10 @@ const CartDrawer = ({ isOpen, onClose, items, onIncrease, onDecrease, removeFrom
             )}
           </motion.div>
         </>
-      )}
+      )}     
     </AnimatePresence>
   );
 };
+
 
 export default CartDrawer;
