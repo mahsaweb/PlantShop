@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
+import PlantFinder from './components/PlantFinder';
+import CartDrawer from './components/CartDrawer'; 
 import Home from './pages/Home';
-import Blog from './pages/Blog';
 import Shop from './pages/Shop';
+import Blog from './pages/Blog';
 import ContactUs from './pages/ContactUs';
 import BlogDetails from './pages/BlogDetails';
-import CartDrawer from './components/CartDrawer'; 
-import { useState, useEffect } from 'react';
-import PlantFinder from './components/PlantFinder';
 
 function App() {
   // ۱. خواندن سبد خرید از حافظه مرورگر موقع لود شدن
